@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  tgbot:
+    image: 4babushkin/askuebot:latest
+    restart: unless-stopped
+    volumes:
+      - ./bot.sqlite3:/app/bot.sqlite3
+    environment:
+      MSSQL_ADDRESS: ${MSSQL_ADDRESS}
+      MSSQL_USER: ${MSSQL_USER}
+      MSSQL_PASS: ${MSSQL_PASS}
+      BOT_TOKEN: ${BOT_TOKEN}
